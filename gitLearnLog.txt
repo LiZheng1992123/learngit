@@ -1,0 +1,776 @@
+
+zhengL@zhengL-PC MINGW64 ~
+$ mkdir learngit
+
+zhengL@zhengL-PC MINGW64 ~
+$ cd learnggit
+bash: cd: learnggit: No such file or directory
+
+zhengL@zhengL-PC MINGW64 ~
+$ cd learngit
+
+zhengL@zhengL-PC MINGW64 ~/learngit
+$ pwd
+/c/Users/zhengL/learngit
+
+zhengL@zhengL-PC MINGW64 ~/learngit
+$ git init
+Initialized empty Git repository in C:/Users/zhengL/learngit/.git/
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ ls -ah
+./  ../  .git/
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ ls
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ ls -a
+./  ../  .git/
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ ls -ah
+./  ../  .git/
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ cls
+bash: cls: command not found
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add readme.txt
+fatal: pathspec 'readme.txt' did not match any files
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "wrote a readme file"
+[master (root-commit) ed0078a] wrote a readme file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git diff readme.txt
+diff --git a/readme.txt b/readme.txt
+index d8036c1..013b5bc 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
+\ No newline at end of file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "add distributed"
+[master 0b53134] add distributed
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git diff readme.txt
+diff --git a/readme.txt b/readme.txt
+index 013b5bc..99e0e11 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+ Git is a distributed version control system.
+-Git is free software.
+\ No newline at end of file
++Git is free software distributed under the GPL.
+\ No newline at end of file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "append GPL"
+[master a58df21] append GPL
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git log
+commit a58df210a23faee8dcc3ade430a7c470205bd25a (HEAD -> master)
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:23:01 2018 +0800
+
+    append GPL
+
+commit 0b53134efa1d36cda64014a8744d4b6a48440882
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:19:29 2018 +0800
+
+    add distributed
+
+commit ed0078af3aa57d3aacedb7673274fceb4e9e58ab
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:12:48 2018 +0800
+
+    wrote a readme file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git log --pretry=oneline
+fatal: unrecognized argument: --pretry=oneline
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git log --pretty=oneline
+a58df210a23faee8dcc3ade430a7c470205bd25a (HEAD -> master) append GPL
+0b53134efa1d36cda64014a8744d4b6a48440882 add distributed
+ed0078af3aa57d3aacedb7673274fceb4e9e58ab wrote a readme file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git reset --hard HEAD^
+HEAD is now at 0b53134 add distributed
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ .cat readme.txt
+bash: .cat: command not found
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ cat readme.txt
+Git is a distributed version control system.
+Git is free software.
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git loo
+git: 'loo' is not a git command. See 'git --help'.
+
+The most similar command is
+        log
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git log
+commit 0b53134efa1d36cda64014a8744d4b6a48440882 (HEAD -> master)
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:19:29 2018 +0800
+
+    add distributed
+
+commit ed0078af3aa57d3aacedb7673274fceb4e9e58ab
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:12:48 2018 +0800
+
+    wrote a readme file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git reset --hard a58df210a23faee8dcc3ade430a7c470205bd25a
+HEAD is now at a58df21 append GPL
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git log
+commit a58df210a23faee8dcc3ade430a7c470205bd25a (HEAD -> master)
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:23:01 2018 +0800
+
+    append GPL
+
+commit 0b53134efa1d36cda64014a8744d4b6a48440882
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:19:29 2018 +0800
+
+    add distributed
+
+commit ed0078af3aa57d3aacedb7673274fceb4e9e58ab
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:12:48 2018 +0800
+
+    wrote a readme file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ cat readme.tt
+cat: readme.tt: No such file or directory
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ cat readme.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git reflogg
+git: 'reflogg' is not a git command. See 'git --help'.
+
+The most similar command is
+        reflog
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git reflog
+a58df21 (HEAD -> master) HEAD@{0}: reset: moving to a58df210a23faee8dcc3ade430a7c470205bd25a
+0b53134 HEAD@{1}: reset: moving to HEAD^
+a58df21 (HEAD -> master) HEAD@{2}: commit: append GPL
+0b53134 HEAD@{3}: commit: add distributed
+ed0078a HEAD@{4}: commit (initial): wrote a readme file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ pwd
+/c/Users/zhengL/learngit
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add read.txt
+fatal: pathspec 'read.txt' did not match any files
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "add git is cool"
+On branch master
+Changes not staged for commit:
+        modified:   readme.txt
+
+no changes added to commit
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git diff readme.txt
+diff --git a/readme.txt b/readme.txt
+index 99e0e11..bb8e39b 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,3 @@
+ Git is a distributed version control system.
+-Git is free software distributed under the GPL.
+\ No newline at end of file
++Git is free software distributed under the GPL.
++Git is cool.
+\ No newline at end of file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "add git is cool"
+On branch master
+Changes not staged for commit:
+        modified:   readme.txt
+
+no changes added to commit
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "add git is cool"
+[master ffb2a05] add git is cool
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git loog
+git: 'loog' is not a git command. See 'git --help'.
+
+The most similar command is
+        log
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git log
+commit ffb2a0537d091a7ea034d4af5b697de9fb9f010e (HEAD -> master)
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:38:57 2018 +0800
+
+    add git is cool
+
+commit a58df210a23faee8dcc3ade430a7c470205bd25a
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:23:01 2018 +0800
+
+    append GPL
+
+commit 0b53134efa1d36cda64014a8744d4b6a48440882
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:19:29 2018 +0800
+
+    add distributed
+
+commit ed0078af3aa57d3aacedb7673274fceb4e9e58ab
+Author: lizheng <986479759@qq.com>
+Date:   Tue Jan 16 00:12:48 2018 +0800
+
+    wrote a readme file
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        LICENSE.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add LICENSE.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   LICENSE.txt
+        modified:   readme.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "understand how stage works"
+[master 84b7658] understand how stage works
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 LICENSE.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ cat readme.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+Git has a mutable index called stage.
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git checkout --readme.txt
+error: unknown option `readme.txt'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -q, --quiet           suppress progress reporting
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --detach              detach HEAD at named commit
+    -t, --track           set upstream info for new branch
+    --orphan <new-branch>
+                          new unparented branch
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -f, --force           force checkout (throw away local modifications)
+    -m, --merge           perform a 3-way merge with the new branch
+    --overwrite-ignore    update ignored files (default)
+    --conflict <style>    conflict style (merge or diff3)
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git checkout -- readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ cat readme.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+Git has a mutable index called stage.
+Git tracks changes of files.
+My stupid boss still prefers SVN.
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "add stupid boss still prefer SVN"
+[master b00ba49] add stupid boss still prefer SVN
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git checkout -- readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git reset HEAD readme.txt
+Unstaged changes after reset:
+M       readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git checkout -- readme.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add test.txt
+fatal: pathspec 'test.txt' did not match any files
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add test.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ rm test.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   test.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    test.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test.txt
+rm 'test.txt'
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        test'.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add test\'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   test'.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ rm test\'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   test'.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    test'.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git checkout -- test`.txt
+> git status
+>
+>
+>
+>
+>
+>
+> ^C
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git statuus
+git: 'statuus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   test'.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    test'.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test`.txt
+> ^C
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+LICENSE.txt  readme.txt   test'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+LICENSE.txt  readme.txt   test'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+LICENSE.txt  readme.txt   test'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+LICENSE.txt  readme.txt   test'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+LICENSE.txt  readme.txt   test'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+LICENSE.txt  readme.txt   test'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+LICENSE.txt  readme.txt   test'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+LICENSE.txt  readme.txt   test'.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git rm test\'.txt
+rm 'test'.txt'
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git statuus
+git: 'statuus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git add test.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   test.txt
+
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git commit -m "add test.txt"
+[master 0190adf] add test.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ rm test.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git checkout -- test.txt
+
+zhengL@zhengL-PC MINGW64 ~/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
